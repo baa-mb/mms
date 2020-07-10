@@ -17,20 +17,20 @@
       margin:4vh;
       margin-bottom:0;
       padding:0;
-      font-size:12px;
+      font-size:1.5vw;
       border:2px solid red;
     }
 
     #top_frame,#main_frame {
       width:100%;
-      height:100px;
+      height:300px;
       background: blue;
       border:2px solid black;
       border-radius: 8px;
       box-sizing:border-box;
       background: #eee;
       padding:1%;
-      xtransform: scale(0.9,0.7);
+
     }
 
     #top_frame {
@@ -39,7 +39,7 @@
 
     #main_frame {
       height:auto;
-      height:400px;
+      height:600px;
       overflow-y: scroll;
       margin-bottom:1vh;
     }
@@ -70,20 +70,20 @@
     }
 
 
-    .button_container {
+    .inner_frame {
       /* position:relative; */
-      width:50%;
+      width: 500px;
       border: 1px dotted blue;
       height:400px;
       float:left;
-
+      display:inline;
     }
 
     .lekt_button {
       white-space: nowrap;
       border: 2px solid #333;
       background: #ccc;
-      width: 47%; height: 28px;
+      width: 47%;
       padding: 1%;
       border-radius: 8px;
       margin:0.5%;
@@ -127,7 +127,7 @@
   </div>
 
   <div id="main_frame">
-    <div class="button_container">
+    <div class="inner_frame">
       <?php
       for ($i=0;$i<23;$i++) {
         $proz=rand(0,100);
@@ -142,10 +142,10 @@
 
         </div>';
       }
-      ?>
+      ?> 
     </div>
 
-    <div class="button_container" >
+    <div class="inner_frame" >
       <?php
       for ($i=0;$i<18;$i++) {
         $back="background:green";
