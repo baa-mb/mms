@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My HTML Page</title>
+  <style>
+    body {
+      font-family:Courier New;
+      font-size:3vw;
+    }
+    .holder { /* general */
+      width:45%;
+      margin-right:3%;
+      height:550px;
+      padding:12px;
+      border:2px solid red;
+      border-radius:8px;
+      float:left;
+    }
+
+    .displ,.write { /* general */
+      position:relative;
+      background:#ccc;
+      /* border:1px dotted #bbb; */
+      width:100%;
+      height:45%;
+      margin-bottom:20px;
+      clear:both;
+
+    }
+
+    .write { /* individual */
+      z-index:999;
+      font-weight:bold;
+      caret-color: transparent;
+      background:transparent;
+    }
+
+    h3 {font-size:2vw;}
+
+    /* .alternativ_overlay {
+      position:absolute;
+      top:14px;
+      left:14px; */
+    }
+
+  </style>
+</head>
+
+  <body>
+    <div class='holder'>
+      <div id="dp0" class="displ">
+        sss
+      </div>
+
+      <div id="wr0" class="write" contentEditable="true">
+      </div>
+    </div>
+
+    <footer>
+      <!-- <button onclick="overlay()">Overlay</button> -->
+      <h3>Only correct chars are written - it is very fast. <br />You can also bring this fields in overlay.</h3>
+
+    </footer>
+  </body>
+
+
+  <script>
+    var txt="asdfg asdf asdfd";
+    var nr=0;
+    starte(0);
+
+
+    document.addEventListener('keydown', checkup);
+
+    function starte(flag) {
+      dp=document.getElementById('dp'+flag);
+      wr=document.getElementById('wr'+flag);
+      dp.innerHTML=txt;
+      wr.innerHTML="_";
+      nr=0;
+      wr.focus();
+    }
+
+    function checkup(ev) {
+      flag=0;
+      console.log(nr,flag,ev.key,txt.charAt(nr));
+      dp=document.getElementById('dp'+flag);
+      wr=document.getElementById('wr'+flag);
+
+      if (ev.key==txt.charAt(nr)) {
+        // ev.preventDefault();
+        // ev.stopPropagation();
+        // wr.innerHTML=wr.innerHTML+ev.key+"_";
+        nr++;
+      } else {
+        ev.preventDefault();
+        ev.stopPropagation();
+      }
+    }
+
+    // function overlay() {
+    //   dp.classList.toggle("alternativ_overlay");
+    //   wr.classList.toggle("alternativ_overlay");
+    // }
+
+  </script>
+
+</html>
